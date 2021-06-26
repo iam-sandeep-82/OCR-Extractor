@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&family=Poppins:wght@100;200;300;400;500;600&family=Raleway:wght@100;200;300;400;500&family=Roboto:wght@100;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500&family=Roboto:wght@100;300;400;500&display=swap');
 
 *{
   margin:0px;
@@ -6,7 +6,12 @@
   box-sizing:border-box;
 }
 
-body{
+h1{
   background:rgb(50, 2, 105);
-  color:white;
+  background: linear-gradient(
+            to right, #f32170, #ff6b08,
+             #cf23cf, #eedd44);
+        -webkit-text-fill-color: transparent;
+        -webkit-background-clip: text;
+  font-family: 'Poppins', sans-serif;
 }
