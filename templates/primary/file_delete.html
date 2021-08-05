@@ -1,0 +1,21 @@
+{% extends "../base.html" %}
+{% load static %}
+
+
+{% block title %}File Delete
+{% endblock title %}
+
+{% block links %}
+<link rel="stylesheet" href="{% static './primary/css/file_delete.css' %}">
+{% endblock links %}  
+
+{% block body %}
+
+<h1>File which having more than 1 upload hour has been deleted.  </h1>
+<ul class="collection">
+  
+  {% for file in files %}
+    <li class="collection-items">Image Name:- {{file.name}} Upload at:- {{file.upload_at}}</li>
+  {% endfor %}
+</ul>
+{% endblock body %}  

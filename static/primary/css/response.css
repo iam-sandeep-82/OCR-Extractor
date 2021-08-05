@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,200&display=swap');
+.response{
+  background:rgba(25,24,25,0.8); color:#fff;
+  border-radius:6px;
+  font-size:1.5rem; font-family: 'poppins',sans-serif; font-weight:400;
+   padding:1.2rem ;position: relative;
+}
+
+.actions{
+  display:flex; justify-content: space-between; align-items:center;
+  background: rgb(255, 70, 70); padding:0px 1rem; border-radius: 20px;
+  }
+.actions a{
+  font-size:1.8rem;
+  color:  rgba(0, 0, 0, 0.541);    
+}
+.actions a:hover{
+  color:rgba(255, 255, 255, 1);
+  transition: color 250ms ease-out;
+}
+
+.save-actions a:nth-child(even){
+  margin:0px 1rem;
+}
+.retry-actions a:nth-child(odd){
+  margin-right:1rem;
+}
+.all-actions{
+  position: relative;
+}
+/*.doodle-image{
+  background:url('../doodle/done.svg') center top no-repeat;
+}*/
+
+.result-text h1{
+  text-align:center; font-family:'poppins',sans-serif; font-weight: 900;
+  background:linear-gradient(to right, #256e72, #154b4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  user-select: none;
+}
+.showcase{
+  position: relative;
+}
+.complete_tone{
+  position: absolute;
+  top:0;
+  left:0;
+  opacity: 0;
+}
+
+.prompt{
+  animation : ping-pong 400ms forwards ease;
+}
+
+.copy-prompt{
+  display:none;
+}
+
+@keyframes ping-pong{
+  0%{transform: scale(0); transform-origin: top center;}
+  25%{transform: scale(0.3); transform-origin: top center;}
+  50%{transform: scale(0.6); transform-origin: top center;}
+  75%{transform: scale(0.8); transform-origin: top center;}
+  100%{transform: scale(1); transform-origin: top center;}
+}
+p{
+  margin:0px;
+}
+
+@media only screen and (max-width: 500px) {
+  .doodle-image{
+    display:none;
+  }
+
+  .output{
+    box-shadow:0px 0px 20px 3px rgba(20,20,20,0.6);
+  }
+
+  .response{
+    font-size:1.2rem;
+  }
+}
+
+.text-data{
+  margin-top:1rem;
+  border:solid 1px rgba(255, 255, 255, 0.75);
+  border-radius: 6px;
+  padding:0.8rem
+}

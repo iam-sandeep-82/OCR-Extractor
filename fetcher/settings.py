@@ -12,13 +12,15 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import os
+from django.contrib.messages import constants as messages
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # ROOT TEMPLATES PATH
-TEMPLATES_PATH=os.path.join(BASE_DIR, 'templates')
 
+# 
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -41,8 +43,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # external dependancy
+    'storages',
+
     # ---- CUSTOM INSTALL APPS -------
     'primary',
+    
 ]
 
 MIDDLEWARE = [
@@ -60,7 +66,7 @@ ROOT_URLCONF = 'fetcher.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [TEMPLATES_PATH],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -68,6 +74,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -111,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -131,5 +138,28 @@ STATICFILES_DIRS=[STATIC_PATH]  #find the static files in dirs.
 # STATIC_ROOT=os.path.join(BASE_DIR,'staticfiles') 
 
 # uncomment this when static files folder is in root path 
-MEDIA_URL = '/media/'   # access the media files path by using /media/etc 
-MEDIA_ROOT  = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/mediafiles/'   # access the media files path by using /media/etc 
+MEDIA_ROOT  = os.path.join(BASE_DIR, 'mediafiles_root')
+
+
+# MESSAGE FRAMEWORK CONFIGURATIONS
+MESSAGE_TAGS = {
+    messages.DEBUG: 'info',
+    messages.INFO: 'info',
+    messages.SUCCESS: 'success',
+    messages.WARNING: 'warning',
+    messages.ERROR: 'danger',
+}
+
+
+# AWS S3 STORAGE CONFIGURATIONS.
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage' #STATIC FILE STORAGE  
+DEFAULT_FILE_STORAGE = 'fetcher.storages.MediaStorage' #MEDIA FILES STORAGE
+
+AWS_ACCESS_KEY_ID=os.getenv('access_key')
+AWS_SECRET_ACCESS_KEY=os.getenv('secret_access_key')
+AWS_STORAGE_BUCKET_NAME='static-file-container'
+AWS_S3_REGION_NAME='ap-south-1'
+AWS_S3_FILE_OVERWRITE=True
+AWS_DEFAULT_ACL='public-read'
+

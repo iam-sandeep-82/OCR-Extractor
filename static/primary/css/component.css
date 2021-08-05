@@ -1,0 +1,93 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:ital,wght@0,100;0,300;0,400;0,500;0,700;0,800;0,900;1,200&display=swap');
+
+:root{
+  --primary-color:#00BFA6;
+  --secondary-color:#000000;
+  --bold-red:rgb(255, 59, 59);
+  --soft-bold-red:rgb(255, 94, 94);
+  --charcoal-black:rgb(41, 41, 41);
+  --bold-limeyellow:rgb(255, 255, 95);
+  --soft-white:rgba(255, 255, 255, 0.60);
+  --neon-green:rgb(201, 255, 94);
+}
+
+
+
+/* button{
+	width: 0.2px;
+	height: 0.2px;
+	opacity: 1;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+} */
+
+button{
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--charcoal-black);
+  /* background-color: var(--soft-bold-red); */
+  background: linear-gradient(90deg, hsla(18, 76%, 85%, 1) 0%, hsla(203, 69%, 84%, 1) 100%);
+  display: inline-block;
+  width:85px;
+  text-align:center;
+  height:35px;
+  outline:none;
+  display: flex; align-items: center; justify-content: center;
+  border-radius:6px;
+  box-shadow: 0px 0px 30px 2.5px rgba(34, 34, 34, 0.350);
+}
+
+
+button:hover{
+  background: linear-gradient(90deg, hsla(211, 66%, 87%, 1) 0%, hsla(348, 67%, 88%, 1) 50%, hsla(272, 26%, 72%, 1) 100%);
+  color:var(--charcoal-black);
+  box-shadow: 0px 0px 25px 2.5px  rgba(38, 38, 38, 0.400);
+  animation : vibrate 250ms forwards ease-out;
+  outline:none;
+}   
+@keyframes vibrate{
+  0% {
+    transform:translateX(-5px);
+  }
+      25% {
+    transform:translateX(5px);
+  }
+      50% {
+    transform:translateX(-5px);
+  }
+      75% {
+    transform:translateX(5px);
+  }
+      
+  100% {
+    transform:translateX(0px);
+  }
+}
+button {
+	cursor: pointer; /* "hand" cursor */
+}
+
+.footer{
+  background:rgba(28,28,28,0.65);
+  color:rgba(255, 255, 255, 0.755);;
+  padding: 0.4rem 0px;
+  font-size :1rem;
+  text-align:center;
+  display:block;
+  vertical-align: bottom;
+  font-family:monospace;
+  font-weight:400;
+  /* position: relative;
+  top:40px; */
+}
+
+.creator{
+  color:#fff;
+  
+}
+
+.footer i{
+  color:rgba(255, 255, 255, 0.808);
+}
+

@@ -1,0 +1,54 @@
+{% extends "../base.html" %}
+{% load static %}
+
+
+{% block title %}Upload
+{% endblock title %}
+
+
+{% block links %}
+<link rel="stylesheet" href="{% static './primary/css/form.css' %}">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css" integrity="sha512-5fsy+3xG8N/1PV5MIJz9ZsWpkltijBI48gBzQ/Z2eVATePGHOkMIn+xTDHIfTZFVb9GMpflF2wOWItqxAP2oLQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+{% endblock links %}  
+
+{% block body %}
+
+<div class="container center-align " id='cont' >
+  <div class="frame l10 m8 s12 depth-4">
+
+    <div class="row">
+      <form action="." method='POST' enctype="multipart/form-data" class="col s12">  
+        {%csrf_token%}
+
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="password" type="password" class="validate">
+              <label for="password">Password</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="email" type="email" class="validate">
+              <label for="email">Email</label>
+            </div>
+          </div>
+
+        <div class="center-align button-group">
+          <input type="submit" value="Submit " class="button ">
+          <input type="reset" value="Clear" class="button">
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+{% block js %}
+<script src="{% static 'primary/js/form.js' %}"></script>
+{% endblock js %}  
+
+{% endblock body %}
+
+
+

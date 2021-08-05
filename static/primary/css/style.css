@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Lato:wght@300;400;700&family=Poppins:wght@100;200;300;400;500;600;700;800;900&family=Raleway:wght@100;200;300;400;500&family=Roboto:wght@100;300;400;500&display=swap');
 
+:root{
+  --charcoal-black:rgba(28,28,28,0.8);
+  --white:#fff;
+  --bold-red: rgb(255, 78, 78);
+  --bold:rgb(36, 36, 255);
+  --bold-yellow:rgb(255, 255, 86);
+  --bold-neon:rgb(255, 255, 86);
+
+
+}
 *{
   margin:0px;
   padding:0px;
@@ -14,4 +24,44 @@ h1{
         -webkit-text-fill-color: transparent;
         -webkit-background-clip: text;
   font-family: 'Poppins', sans-serif;
+}
+
+body{
+  background:#fff;
+  --wite:#fff;
+
+}
+
+#cont{
+  margin-top:2.5rem;
+  padding:1rem;
+  border-radius: 10px;
+}
+
+.frame {
+  border:solid black 1px;
+  padding:0.8rem;
+  border-radius: 8px;
+
+}
+
+.button-group{
+  display:flex;
+  align-items:center;
+  justify-content:space-around;
+  color:white;
+}
+
+.gradient{
+  border:solid 2px yellowgreen;
+}
+.button-group .icon{
+  font-size:1rem;
+}
+.ocr-frame{
+  margin-top:1rem;
+}
+.ocr-process{
+  display:inline-block;
+  width:80%;
 }

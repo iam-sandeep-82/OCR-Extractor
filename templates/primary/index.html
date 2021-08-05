@@ -1,20 +1,116 @@
 {% extends "../base.html" %}
 {% load static %}
 
-
 {% block title %}Index
 {% endblock title %}
 
 
 {% block links %}
-<link rel="stylesheet" href="{% static 'primary/css/style.css' %}">
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+
+<link rel="stylesheet" href="{% static 'primary/css/response.css' %}">
+<link rel="stylesheet" href="{% static 'primary/css/_style.css' %}">
+<link rel="stylesheet" href="{% static 'primary/css/component.css' %}">
+<link rel="stylesheet" href="{% static 'primary/css/_upload-btn.css' %}">
+<!-- /* Extra small devices (phones, 600px and down) */ -->
+<link rel="stylesheet" media="screen and (max-width: 600px)" href="{% static 'primary/css/_mobile_style.css' %}">
+
+
 {% endblock links %}  
 
-{% block body %}
-  <h1 style="font-weight:900; font-size:4rem;">{{obj}}</h1>
-<a class="waves-effect waves-light btn">button</a>
-{% endblock body %}
+{% block body %}  
+
+<div class="overlay"></div>
+
+{% comment %} navbar section {% endcomment %}
+
+{% include './partials/header.html' %}
+
+
+  <div class="container mt-2 show-case">
+      <!-- MESSAGE HANDLER -->
+      {% if messages %}
+        {% for message in messages %}
+          {% if message.tags %}
+            <div class="alert alert-{{message.tags}}">{{message}}</div>
+          {% else %}
+          <div class="alert alert-info">{{message}}</div>
+          {%endif %}
+        {% endfor %}
+      {% endif %}
+     <!-- MESSAGE HANDLER -->
+
+    <div class="row mt-5" id='row-2'>
+      
+        <!-- <div class="loader"></div> -->
+        <img src="{% static './primary/images/preloader.gif' %}"  alt="" srcset="" class="img-fluid preloader"> 
+
+  
+      <div class="col-sm-6 mt-1 doodle-1 ">
+        <img src="{% static './primary/images/undraw_Upload_re_pasx.svg' %}" class='img-fluid doodle-icon'>
+      </div>
+
+      <div class="col-sm-1"></div>
+
+
+      <div class="col-sm-5 content-area">
+        <div class="input-field mb-3">
+
+          <div class="input-group-1">
+            <form action="." method='POST' id="upload-form" enctype="multipart/form-data">
+              {% csrf_token %}
+              <!-- <input type="file" name="file" id="file" class="inputfile"/>
+              <label for="file">Select Image &nbsp; <i class="fas fa-file-upload"></i></label> -->
+              {{form.photo}}
+              {{form.photo.label_tag}}  
+
+
+              <div class="actions mt-2">
+                <button type="submit" class='submit'>Submit</button>
+                <button type="reset" class='reset'>Reset</button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+
+      
+        <div class="instruction-form ">
+          <div class='align-middle'>
+          <h3>Follow this simple 3 step for better performance</h3>
+          </div>
+
+          <ul class='bucket'>
+            <li class='bucket-items'><h4>1. Try to import .PNG Image. <i class="far fa-file-image"></i></h4> </li>
+            <li class='bucket-items'><h4>2. Resize Image to main content. <i class="fas fa-crop-alt"></i></h4></li>
+            <li class='bucket-items'><h4>3. Upload High Quality Image. <i class="fas fa-hand-sparkles"></i></h4></li>
+          </ul>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {% comment %} footer section {% endcomment %}
+  {% include './partials/footer.html' %}
+
+
+  
 
 {% block js %}
-<script src="{% static 'primary/js/app.js' %}"></script>
-{% endblock js %}  
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+
+<!-- Option 2: Separate Popper and Bootstrap JS -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+
+<script src="{% static './primary/js/app.js' %}"></script>
+{% endblock js %}
+
+{% endblock body %}
+
