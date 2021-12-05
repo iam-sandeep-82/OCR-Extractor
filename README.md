@@ -1,4 +1,4 @@
-## OCR Web-Application integrate with AWS Textract Service.
+## Django powered OCR Web-Application integrate with AWS Textract Service.
 
 Now easily extract text from any handwritten documents in a seconds with a accurate results.
 
